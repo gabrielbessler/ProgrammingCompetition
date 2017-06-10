@@ -1,6 +1,7 @@
 #!/bin/python3
 
 import sys
+from functools import reduce 
 
 def getPrimes():
     ''' Inefficient prime algorithm I had already made '''
@@ -19,15 +20,14 @@ def getPrimes():
 def getDivisors(num):
     #TODO: make it output the divisors in order
     ''' Gets all of the divisors of a given number '''
-    divs = [1]
-    for i in range(2, int(1 + num ** .5)):
+    divs = []
+    for i in range(1, int(1 + num ** .5)):
         if num % i == 0:
-            print('true')
             divs.append(i)
             div2 = num // i
             if i != div2:
                 divs.append(div2)
-    return divs 
+    return divs
 
 def gcd(a,b):
     ''' Finds the greatest common divisor of two integers. ''''
@@ -45,8 +45,6 @@ def totients(n):
             totients += 1
     return totients
 
-
-
 def divisorExploration(m, a, d):
     ''' '''
     #p[i] is the ith prime, which means we need m primes
@@ -58,11 +56,6 @@ def divisorExploration(m, a, d):
     n = reduce(lambda x, y: x*y, L)
 
     currTree = [n]
-    while d > 1:
-        for i in range(len(currTree)):
-            currTree[i] =
-        divisors = getDivisors(n)
-        d -= 1
 
 q = int(input().strip())
 for a0 in range(q):
