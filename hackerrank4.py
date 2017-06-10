@@ -29,6 +29,24 @@ def getDivisors(num):
                 divs.append(div2)
     return divs 
 
+def gcd(a,b):
+    ''' Finds the greatest common divisor of two integers. ''''
+    if a < b: # require a > b
+        A,b,a  = b,a,A
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def totients(n):
+    ''' Computes the totient function using the greatest common divisor function. '''
+    totients = 0
+    for i in range(1, n):
+        if gcd(n,i) == 1:
+            totients += 1
+    return totients
+
+
+
 def divisorExploration(m, a, d):
     ''' '''
     #p[i] is the ith prime, which means we need m primes
@@ -53,17 +71,3 @@ for a0 in range(q):
     result = divisorExploration(m, a, d)
     print(result)
     
-def gcd(a,b):
-    if a < b: # require a > b
-        A,b,a  = b,a,A
-    while b != 0:
-        a, b = b, a % b
-    return a
-
-def totients(n):
-    totients = 0
-    for i in range(1, n):
-        if gcd(n,i) == 1:
-            totients += 1
-    return totients
-
