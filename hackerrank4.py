@@ -1,3 +1,4 @@
+import sys
 from functools import reduce
 
 def getPrimes():
@@ -66,3 +67,10 @@ def divisorExploration(m, a, d):
     L = [p[i]** (a + i) for i in range(1, m+1)]#should go from 1 to m
     n = reduce(lambda x, y: x*y, L)
     return sumTotientTree(n,d) % (10**9 + 7)
+
+q = int(input().strip())
+for a0 in range(q):
+    m, a, d = input().strip().split(' ')
+    m, a, d = [int(m), int(a), int(d)]
+    result = divisorExploration(m, a, d)
+    print(result)
