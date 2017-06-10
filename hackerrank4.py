@@ -44,12 +44,14 @@ def totients(n):
     return totients
 
 def makeDivisorTree(roots, d): # d == depth
-    if d == 0:
-        return roots
     newRoots = []
-    for i in roots:
-        newRoots += getDivisors(i)
-    return makeDivisorTree(newRoots, d - 1)
+    while d > 0:
+        for i in roots:
+            newRoots += getDivisors(i)
+        roots = newRoots        
+        newRoots = []
+        d -= 1
+    return roots
 
 def sumTotientTree(n,d):
     divisorTree = makeDivisorTree([n], d)
