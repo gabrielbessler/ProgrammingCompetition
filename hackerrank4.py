@@ -22,11 +22,12 @@ def getDivisors(num):
     divs = [1]
     for i in range(2, int(1 + num ** .5)):
         if num % i == 0:
+            print('true')
             divs.append(i)
             div2 = num // i
             if i != div2:
                 divs.append(div2)
-    return divs
+    return divs 
 
 def divisorExploration(m, a, d):
     ''' '''
@@ -51,3 +52,18 @@ for a0 in range(q):
     m, a, d = [int(m), int(a), int(d)]
     result = divisorExploration(m, a, d)
     print(result)
+    
+def gcd(a,b):
+    if a < b: # require a > b
+        A,b,a  = b,a,A
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def totients(n):
+    totients = 0
+    for i in range(1, n):
+        if gcd(n,i) == 1:
+            totients += 1
+    return totients
+
