@@ -45,6 +45,21 @@ def totients(n):
             totients += 1
     return totients
 
+def makeDivisorTree(roots, d): # d == depth
+    if d == 0:
+        return roots
+    newRoots = []
+    for i in roots:
+        newRoots += getDivisors(i)
+    return makeDivisorTree(newRoots, d - 1)
+
+def sumTotientTree(n,d):
+    divisorTree = makeDivisorTree([n], d)
+    totientTree = []
+    for i in divisorTree:
+        totientTree += [totients(i)]
+    return sum(totientTree)
+
 def divisorExploration(m, a, d):
     ''' '''
     #p[i] is the ith prime, which means we need m primes
@@ -54,8 +69,8 @@ def divisorExploration(m, a, d):
     p = [1] + getPrimes() #adding 1 makes sure the indices are correct
     L = [p[i]** a + i for i in range(1, m+1)]#should go from 1 to m
     n = reduce(lambda x, y: x*y, L)
-
-    currTree = [n]
+    return sumTotientTree(n,d) % (10**9 + 7)
+    
 
 q = int(input().strip())
 for a0 in range(q):
