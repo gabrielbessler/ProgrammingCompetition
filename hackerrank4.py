@@ -21,9 +21,7 @@ def getDivisors(num):
     ''' Gets all of the divisors of a given number '''
     divs = [1]
     for i in range(2, int(1 + num ** .5)):
-        print(i)
         if num % i == 0:
-            print('true')
             divs.append(i)
             div2 = num // i
             if i != div2:
