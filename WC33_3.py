@@ -1,10 +1,9 @@
 #!/bin/python3
 
-import random
 import sys
+import random
 import time
 from collections import defaultdict
-
 
 # we have n letters in our alphabet - up to 100,000
 # m is the # of integers we have - up to 1000
@@ -12,6 +11,9 @@ from collections import defaultdict
 # k are how many different transformations we have - up to 1,000,000
 
 def findPalindrome(s):
+    '''
+    
+    '''
     # Given a string, we want to find the longest palindrome subsequence
 
     # We can do it using use-it-or-lose-it in recursion, but due to the repeating-subproblems,
@@ -28,19 +30,19 @@ def findPalindrome(s):
     # If s is one character, then max length palindrome is 1
     # If s is two characters, max length palindrome is 2
 
-    stringLen = len(s)
+    string_len = len(s)
 
-    L = [[0 for i in range(stringLen)] for j in range(stringLen)]
+    L = [[0 for i in range(string_len)] for j in range(string_len)]
 
     #If our string is n characters, we first make an nxn grid
 
-    for i in range(stringLen):
+    for i in range(string_len):
         L[i][i] = 1
 
     # The table should be symmetrical
-    for substring_length in range(2, stringLen+1): # (We already did the diagonals, length 1)
+    for substring_length in range(2, string_len+1): # (We already did the diagonals, length 1)
         # i is our row, j is our column (note that top-left is 0,0)
-        for i in range(stringLen - substring_length + 1):
+        for i in range(string_len - substring_length + 1):
             j = i + substring_length - 1
             startingLetter = s[i]
             endingLetter = s[j]
@@ -56,7 +58,9 @@ def findPalindrome(s):
     return L[0][-1]
 
 def findLongestSubsequence(a, transfs, n):
+    '''
 
+    '''
     adjecency_list = defaultdict(set)
     for first_val, second_val in transfs:
         adjecency_list[first_val].add(second_val)
@@ -79,10 +83,14 @@ def findLongestSubsequence(a, transfs, n):
     return findPalindrome(a)
 
 def depth_first_search(adjecency_list, start_node):
+    '''
+
+    '''
     visited_nodes = set()
     stack = [start_node]
     while stack:
-        vertex = stack.pop() # We remove the last item from the stack and store it as the vertex we're currently looking at
+        # We remove the last item from the stack and store it as the vertex we're currently looking at
+        vertex = stack.pop() 
         if vertex not in visited_nodes:
             visited_nodes.add(vertex)
             stack.extend(adjecency_list[vertex] - visited_nodes)
