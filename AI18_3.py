@@ -3,6 +3,18 @@
 import sys
 from functools import reduce
 
+'''
+Problem Statement
+
+Eric has four integers, a, b, c, and d.
+Instantly, he wondered how many pairs of integers, (x, y), satisfy:
+
+    x**2 + y**2 = (x*a) + (y*b)
+
+where 1 <= x <= c and 1 <= y <= d.
+Find and print the number of pairs that satisfy the above equation.
+'''
+
 def rationalSums(n, a, b):
     # First we want to find each numerator for partial fractions...
 
