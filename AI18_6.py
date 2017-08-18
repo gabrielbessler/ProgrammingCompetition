@@ -1,6 +1,6 @@
 '''
 There are n different candies in total.
-Three kinds of people: 
+Three kinds of people:
 
 a of them want to get odd number of candies,
 b of them want to get even number of candies,
@@ -14,14 +14,14 @@ n <= 10**9
 a,b,c <= 50000
 1 <= a + b + c
 '''
-''' E.g. 
+''' E.g.
 
 3 candies, A, B, C
-a = 1, b = 1, c = 0 
+a = 1, b = 1, c = 0
 
 Soln: 4 ways b/c
 {A}{B,C}
-{B}, {C,A} 
+{B}, {C,A}
 {C}, {A,B}
 {A,B,C} {}
 
@@ -31,11 +31,11 @@ Soln: 4 ways b/c
 
 import sys
 
-def parityParty(n, a, b, c):
+def parity_party(n, a, b, c):
     # Complete this function
+    return 0
 
 n, a, b, c = input().strip().split(' ')
 n, a, b, c = [int(n), int(a), int(b), int(c)]
-result = parityParty(n, a, b, c)
+result = parity_party(n, a, b, c)
 print(result)
-

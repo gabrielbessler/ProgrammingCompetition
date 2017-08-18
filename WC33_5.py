@@ -6,24 +6,28 @@ from collections import defaultdict
 
 sys.setrecursionlimit(2000)
 def search(curr_node, goal_node, visited):
-    nextVisited = visited.copy()
-    nextVisited.add(curr_node)
+    '''
+    '''
+    next_visited = visited.copy()
+    next_visited.add(curr_node)
     if curr_node == goal_node:
         if goal_node == v:
             return 1
         elif goal_node == w:
             goal_node = v
-    if adjecency_list[curr_node] - nextVisited == set():
+    if adjecency_list[curr_node] - next_visited == set():
         return 0
     else:
-        waysToGo = adjecency_list[curr_node] - nextVisited
+        ways_to_go = adjecency_list[curr_node] - next_visited
         total = 0
-        for next_node in waysToGo:
-            if search(next_node, goal_node, nextVisited) == 1:
+        for next_node in ways_to_go:
+            if search(next_node, goal_node, next_visited) == 1:
                 return 1
         return 0
 
 def depth_first_search(adjecency_list, start_node, mid_node, end_node):
+    '''
+    '''
     visited_nodes = set()
     stack = [start_node]
     while stack:
@@ -58,14 +62,14 @@ adjecency_list = defaultdict(set)
 st = time.time()
 for a in range(20):
     for m in range(100):
-        u,v = [random.randint(1,100), random.randint(1,100)]
+        u,v = [random.randint(1, 100), random.randint(1, 100)]
         adjecency_list[u].add(v)
         adjecency_list[v].add(u)
-    u, v, w = [random.randint(1,100), random.randint(1,100), random.randint(1,100)]
-    print(u,v,w)
-
+    u, v, w = [random.randint(1, 100), random.randint(1, 100), random.randint(1, 100)]
+    print(u, v, w)
     if (search(u, w, set())) == 1:
         print("YES")
     else:
         print("NO")
+        
 print(time.time() - st)

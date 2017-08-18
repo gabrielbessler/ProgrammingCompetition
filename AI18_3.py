@@ -15,7 +15,7 @@ where 1 <= x <= c and 1 <= y <= d.
 Find and print the number of pairs that satisfy the above equation.
 '''
 
-def rationalSums(n, a, b):
+def rational_sums(n, a, b):
     # First we want to find each numerator for partial fractions...
 
     #This first takes our x value, then adds up each term in the numerator after plugging in x
@@ -38,5 +38,5 @@ def rationalSums(n, a, b):
 n = int(input().strip())                            #The degree of the function
 a = list(map(int, input().strip().split(' ')))
 b = list(map(int, input().strip().split(' ')))
-result = rationalSums(n, a, b)
+result = rational_sums(n, a, b)
 print(result)

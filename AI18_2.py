@@ -22,9 +22,11 @@ C = 3**3**n
 
 '''
 
-def towerColoring(num):
+def tower_coloring(num):
     '''
-
+    Repeatedly multiply the total by 3 and then take the modulo n times
+    until in order to obtain 3**n. Repeat this process again to find
+    3**3**n.
     '''
     total = 3
     while num > 1:
@@ -38,24 +40,24 @@ def towerColoring(num):
         total -= 1
     return new_total
 
-def towerColoring2(num):
+def tower_coloring2(num):
     '''
     Naive approach to solving 3**3**n mod 10**9 + 7,
-    by simply computing the value and then taking its modulo. 
+    by simply computing the value and then taking its modulo.
     '''
     return (3 ** (3 ** num)) % (10**9 + 7)
 
-def towerColoring3(num):
+def tower_coloring3(num):
     '''
     This is the fast algorithm we use.
     '''
-    step_one = int(findPower(3, num, 10**9 + 6))
-    step_two = findPower(3, step_one, 10**9 + 7)
+    step_one = int(find_power(3, num, 10**9 + 6))
+    step_two = find_power(3, step_one, 10**9 + 7)
     return step_two
 
-def findPower(base, exp, mod=0):
+def find_power(base, exp, mod=0):
     '''
-    Fast algorithm for finding 
+    Fast algorithm for finding
     (base ** exp) % mod
     '''
     binary_power_rep = bin(exp)[2:]
@@ -81,9 +83,17 @@ def findPower(base, exp, mod=0):
     else:
         return total % mod
 
-n = int(input().strip())
-result = towerColoring3(n)
-print(result)
+def main():
+    '''
+    Takes number of blocks as the input and then computes
+    3**3**n and returns the result.
+    '''
+    num_blocks = int(input().strip())
+    result = tower_coloring3(num_blocks)
+    print(result)
+
+if __name__ == "__main__":
+    main()
 
 '''
 Speed Comparison
@@ -91,17 +101,17 @@ Speed Comparison
 test_num = 16
 
 st = time.time()
-print(towerColoring(test_num))
+print(tower_coloring(test_num))
 print("First Trial: " + str(time.time() - st))
 print("============================")
 
 st = time.time()
-print(towerColoring2(test_num))
+print(tower_coloring2(test_num))
 print("Second Trial: " + str(time.time() - st))
 print("============================")
 
 st = time.time()
-print(towerColoring3(test_num))
+print(tower_coloring3(test_num))
 print("Third Trial: " + str(time.time() - st))
 print("============================")
 '''

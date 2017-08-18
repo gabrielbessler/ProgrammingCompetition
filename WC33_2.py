@@ -6,7 +6,7 @@ import sys
 # where (0+) represents any non-empty consecutive sequence of 0's.
 # The patterns are allowed to overlap.
 
-def patternCount(s):
+def pattern_count(s):
     ''' Count the number of times the patter 1(0+)1 occurs in a string. '''
     pattern_num = 0
     in_pattern = False
@@ -44,5 +44,5 @@ def patternCount(s):
 q = int(input().strip())
 for a0 in range(q):
     s = input().strip()
-    result = patternCount(s)
+    result = pattern_count(s)
     print(result)

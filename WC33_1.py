@@ -20,7 +20,7 @@
 
 import sys
 
-def twinArrays(ar1, ar2):
+def twin_arrays(ar1, ar2):
     '''
     Finds an integer in ar1 and ar2 such that their sum is minimum,
     and their indeces are different.
@@ -68,5 +68,5 @@ def twinArrays(ar1, ar2):
 n = int(input().strip())
 ar1 = list(map(int, input().strip().split(' ')))
 ar2 = list(map(int, input().strip().split(' ')))
-result = twinArrays(ar1, ar2)
+result = twin_arrays(ar1, ar2)
 print(result)

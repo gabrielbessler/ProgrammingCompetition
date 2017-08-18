@@ -97,7 +97,7 @@ def depth_first_search(adjecency_list, start_node):
     return visited_nodes
 
 test = False
-if test == True:
+if test:
     #Worst Case:
     #100000 letters in our alphabet
     numLetters = 100000

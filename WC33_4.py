@@ -37,7 +37,10 @@ import time
 #In addition, the rectangle with the largest area is the same thing as 
 # searching for the palindrome with the most digits
 
-def findLargestRect(t):
+def find_largest_rect(t):
+    '''
+
+    '''
     maxHeight = len(t)
     maxWidth = len(t[0])
 
@@ -54,7 +57,7 @@ def findLargestRect(t):
                     nums = []
                     for row in range(y, y+rectHeight):
                         nums.extend(t[row][x:x+rectWidth])
-                    if isPalindrome(nums):
+                    if is_palindrome(nums):
                         foundAns = True
                         largestAreaFound = rectHeight * rectWidth
                         ans.append([largestAreaFound, startingPos, rectWidth, rectHeight])
@@ -69,7 +72,12 @@ def findLargestRect(t):
             maxv_i = i
     print(str(ans[maxv_i][0]) + '\n' + str(ans[maxv_i][1][0]) +" "+ str(ans[maxv_i][1][1]) + " " + str(ans[maxv_i][1][1] + ans[maxv_i][3] - 1) + " " + str(ans[maxv_i][1][0] + ans[maxv_i][2] - 1))
 
-def isPalindrome(string):
+def is_palindrome(string):
+    '''
+        Counts the number of numbers in a string. 
+        Then sees if the number of numbers makes it 
+        possible for the string to be a palindrome. 
+    '''
     if len(string) == 1:
         return True
     else:
@@ -99,5 +107,5 @@ for table_i in range(n):
    table_t = [int(table_temp) for table_temp in input().strip().split(' ')]
    table.append(table_t)
 st = time.time()
-print(findLargestRect(table))
+print(find_largest_rect(table))
 print(time.time() - st)
