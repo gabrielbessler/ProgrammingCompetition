@@ -14,9 +14,9 @@ def maximumGcdAndSum(A, B):
     ''' TODO '''
 
     #We know that we cannot have a GCD higher than the maximum of a set
-    maxA, maxB = max(A), max(B)
-    maximum_possible_factor = min(maxA, maxB)
-    highest_val = max(maxA, maxB)
+    max_a, max_b = max(A), max(B)
+    maximum_possible_factor = min(max_a, max_b)
+    highest_val = max(max_a, max_b)
 
     A = set(A)
     B = set(B)

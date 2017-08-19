@@ -16,6 +16,9 @@ Find and print the number of pairs that satisfy the above equation.
 '''
 
 def rational_sums(n, a, b):
+    '''
+    This performs a partial fraction decomposition of a given fraction.
+    '''
     # First we want to find each numerator for partial fractions...
 
     #This first takes our x value, then adds up each term in the numerator after plugging in x

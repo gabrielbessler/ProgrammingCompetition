@@ -62,13 +62,13 @@ def find_power(base, exp, mod=0):
     '''
     binary_power_rep = bin(exp)[2:]
     binary_digit_parts = []
-    for i in range(len(binary_power_rep)):
-        binary_digit_parts += [(2 ** (len(binary_power_rep) - 1 - i)) * int(binary_power_rep[i])]
+    for i, val in enumerate(binary_power_rep):
+        binary_digit_parts += [(2 ** (len(binary_power_rep) - 1 - i)) * int(val)]
     totals = []
     for power in binary_digit_parts:
         if power != 0:
             value = base
-            for j in range(int(log(power,2))):
+            for j in range(int(log(power, 2))):
                 value **= 2
                 if mod != 0:
                     value %= (mod)

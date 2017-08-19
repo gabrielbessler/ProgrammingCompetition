@@ -36,8 +36,9 @@ def depth_first_search(adjecency_list, start_node):
     visited_nodes = set()
     stack = [start_node]
     while stack:
-        #We remove the last item from the stack and store it as the vertex we're currently looking at
-        vertex = stack.pop() 
+        #We remove the last item from the stack,
+        #and store it as the vertex we're currently looking at
+        vertex = stack.pop()
         if vertex not in visited_nodes:
             visited_nodes.add(vertex)
             stack.extend(adjecency_list[vertex] - visited_nodes)
@@ -68,7 +69,7 @@ for a0 in range(n-1):
 
 total_time = 0
 for i in range(1000000):
-    u, v = [randint(1,5), randint(1,5)]
+    u, v = [randint(1, 5), randint(1, 5)]
     st = time()
     getAns(u, v)
     total_time += time() - st

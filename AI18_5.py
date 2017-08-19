@@ -21,11 +21,11 @@ import sys
 import time
 from functools import lru_cache
 
-def gcd(a,b):
+def gcd(a, b):
     ''' Finds the greatest common divisor of two integers. '''
     if a < b: # require a > b
         A = b
-        b,a = a,A
+        b, a = a, A
     while b != 0:
         a, b = b, a % b
     return a
@@ -34,7 +34,11 @@ def gcd(a,b):
 #(ax + by) must have gcd(a,b) as a factor
 
 def count_solutions(a, b, c, d):
-    # Complete this function
+    '''
+    Given the parameters of the equation in the problem statement,
+    this iterates through all possible (x,y) with (c,d) as an
+    upper bound, and checks if the tuple is a sol'n to the equation.
+    '''
     g = gcd(a, b)
     numSol = 0
     for x in range(1, c+1):

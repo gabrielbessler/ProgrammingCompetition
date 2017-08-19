@@ -1,18 +1,22 @@
 #!/bin/python3
 
 import sys
-import math
 
 '''
 Problem Statement
 
-You have been given an integer  which represents the length of one of cathetus of a right-angle triangle.
-You need to find the lengths of the remaining sides. There may be multiple possible answers; any one will be accepted.
+You have been given an integer which represents
+the length of one of cathetus of a right-angle triangle.
+You need to find the lengths of the remaining sides.
+There may be multiple possible answers; any one will be accepted.
 '''
 
-def pythagoreanTriple(side_length):
-    ''' '''
-
+def pythagorean_triple(side_length):
+    '''
+    Given one cathetus of a right-angle triangle, this
+    function computes and returns a 3-tuple containing
+    3 sides of integer values for the triangle.
+    '''
     if side_length % 2 == 1: #a is odd
         k = (side_length - 1) // 2
         b = 2*(k+1)*k
@@ -37,5 +41,5 @@ def pythagoreanTriple(side_length):
 # Integer division is required (floating point math is annoying)
 
 a = int(input().strip())
-triple = pythagoreanTriple(a)
+triple = pythagorean_triple(a)
 print(" ".join(map(str, triple)))

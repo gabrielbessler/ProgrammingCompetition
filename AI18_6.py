@@ -6,7 +6,8 @@ a of them want to get odd number of candies,
 b of them want to get even number of candies,
 c simply don't care about parity of candies they get.
 
-Find the number of ways to divide all candies between everybody. (Some people may not receive a candy).
+Find the number of ways to divide all candies between everybody
+(some people may not receive a candy).
 
 Constraints
 
@@ -24,7 +25,6 @@ Soln: 4 ways b/c
 {B}, {C,A}
 {C}, {A,B}
 {A,B,C} {}
-
 '''
 
 #!/bin/python3
@@ -32,7 +32,6 @@ Soln: 4 ways b/c
 import sys
 
 def parity_party(n, a, b, c):
-    # Complete this function
     return 0
 
 n, a, b, c = input().strip().split(' ')
