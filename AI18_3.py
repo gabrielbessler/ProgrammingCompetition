@@ -6,13 +6,27 @@ from functools import reduce
 '''
 Problem Statement
 
-Eric has four integers, a, b, c, and d.
-Instantly, he wondered how many pairs of integers, (x, y), satisfy:
+We're considering infinite sums (from n=1 to n=inf), of the form
+    P(n) / Q(n),                    Q(n) != 0
+We know that if deg P <= deq Q - 2, the series converges (although
+the sum can be irrational). Therefore, we consider a special case of
 
-    x**2 + y**2 = (x*a) + (y*b)
+Q(x) = (x + a_1)(x + a_2)...(x + a_n)
+P(x) = b_0 + b_1*x + ... + b_n-2*x**(n-2),
 
-where 1 <= x <= c and 1 <= y <= d.
-Find and print the number of pairs that satisfy the above equation.
+with the constraints that all a_i are distinct positive integers.
+
+Constraints
+
+2 <= n <= 5000
+0 <= a_i <= 5000
+0 <= b_i <= 10**9
+
+Output Format
+
+If the answer is an irreducible fraction a/b, print a*b**-1 mod (10**9 + 7), where b**-1 is multiplicative
+inverse of b modulo 10**9 + 7. It is guaranteed that b mod 10**9 + 7 != 0.
+
 '''
 
 def rational_sums(n, a, b):

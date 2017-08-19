@@ -1,3 +1,23 @@
+#!/bin/python3
+
+import sys
+import time
+from functools import lru_cache
+
+'''
+Problem Statement
+
+Eric has four integers, a, b, c, and d.
+Instantly, he wondered how many pairs of integers, (x, y), satisfy:
+
+    x**2 + y**2 = (x*a) + (y*b)
+
+where 1 <= x <= c and 1 <= y <= d.
+Find and print the number of pairs that satisfy the above equation.
+'''
+
+# Solution:
+#
 # We begin with the linear diophantine equation ax + by = c
 # we know this equation only has solutions if
 # c is a multiple of gcd(a, b).
@@ -14,12 +34,6 @@
 
 # (1) (x^2 + y^2) must be a multiple of w
 # (2) Once we find solution (x, y),  all other solutions are of form (x + k*a/w, x + k*b/w)
-
-#!/bin/python3
-
-import sys
-import time
-from functools import lru_cache
 
 def gcd(a, b):
     ''' Finds the greatest common divisor of two integers. '''

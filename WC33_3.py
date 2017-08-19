@@ -5,26 +5,34 @@ import random
 import time
 from collections import defaultdict
 
-# we have n letters in our alphabet - up to 100,000
-# m is the # of integers we have - up to 1000
-# a are the starting numbers
-# k are how many different transformations we have - up to 1,000,000
+'''
+Problem Statement
 
-def findPalindrome(s):
+Given a string, we want to find the longest palindrome subsequence
+
+Constraints
+
+n letters in our alphabet - up to 100,000
+m is the # of integers we have - up to 1000
+a are the starting numbers
+k are how many different transformations we have - up to 1,000,000
+'''
+
+def find_palindrome(s):
     '''
-    
+
     '''
-    # Given a string, we want to find the longest palindrome subsequence
 
-    # We can do it using use-it-or-lose-it in recursion, but due to the repeating-subproblems,
-    # Our alg will have a time complexity of O(2**n)
+    #We can do it using use-it-or-lose-it in recursion, but due to the repeating-subproblems,
+    #Our alg will have a time complexity of O(2**n)
 
-    # In order to get around this, we use dynamic programming
-    # We start with the outside characters
-    # If they are the same, we definitely want to use the, so we add 2 to our length and continue
-    # The algorithm with the new sequence
-    # If they are different, we solve the problem once ignoring the last character, and once using the first character
-    # We basically solve the problem bottom-up instead of top-down in dynamic programming!
+    #In order to get around this, we use dynamic programming
+    #We start with the outside characters
+    #If they are the same, we definitely want to use the, so we add 2 to our length and continue
+    #The algorithm with the new sequence
+    #If they are different, we solve the problem once ignoring the last character,
+    #and once using the first character
+    #We basically solve the problem bottom-up instead of top-down in dynamic programming!
 
     # Cases:
     # If s is one character, then max length palindrome is 1
@@ -44,12 +52,12 @@ def findPalindrome(s):
         # i is our row, j is our column (note that top-left is 0,0)
         for i in range(string_len - substring_length + 1):
             j = i + substring_length - 1
-            startingLetter = s[i]
-            endingLetter = s[j]
+            starting_letter = s[i]
+            ending_letter = s[j]
             # First, we have the special case of length 2
-            if substring_length == 2 and startingLetter == endingLetter:
+            if substring_length == 2 and starting_letter == ending_letter:
                 L[i][j] = 2
-            elif startingLetter == endingLetter:
+            elif starting_letter == ending_letter:
                 L[i][j] = 2 + L[i+1][j-1] #We move down a row and left a column
             else:
                 L[i][j] = max(L[i+1][j], L[i][j-1])
@@ -80,7 +88,7 @@ def findLongestSubsequence(a, transfs, n):
             if a[i] in group:
                 a[i] = min(group)
 
-    return findPalindrome(a)
+    return find_palindrome(a)
 
 def depth_first_search(adjecency_list, start_node):
     '''
@@ -90,34 +98,34 @@ def depth_first_search(adjecency_list, start_node):
     stack = [start_node]
     while stack:
         # We remove the last item from the stack and store it as the vertex we're currently looking at
-        vertex = stack.pop() 
+        vertex = stack.pop()
         if vertex not in visited_nodes:
             visited_nodes.add(vertex)
             stack.extend(adjecency_list[vertex] - visited_nodes)
     return visited_nodes
 
-test = False
-if test:
+TESTING = False
+if TESTING:
     #Worst Case:
     #100000 letters in our alphabet
-    numLetters = 100000
-    numTranfs = 1000000
+    num_letters = 100000
+    num_tranfs = 1000000
 
     #1000 integers in our starting string
-    a = [random.randint(1, numLetters) for i in range(1000)]
+    a = [random.randint(1, num_letters) for i in range(1000)]
     #1000000 transformations
-    tranfs = [(random.randint(1, numLetters), random.randint(1, numLetters)) for i in range(numTranfs)]
+    tranfs = [(random.randint(1, num_letters), random.randint(1, num_letters)) for i in range(num_tranfs)]
     print('running....')
     ST = time.time()
-    findLongestSubsequence(a, tranfs, numLetters)
+    findLongestSubsequence(a, tranfs, num_letters)
     print(time.time() - ST)
 else:
-    n,k,m = input().strip().split(' ')
-    n,k,m = [int(n),int(k),int(m)]
+    n, k, m = input().strip().split(' ')
+    n, k, m = [int(n), int(k), int(m)]
     transfs = []
     for a0 in range(k):
-        x,y = input().strip().split(' ')
-        x,y = [int(x),int(y)]
-        transfs.append((x,y))
+        x, y = input().strip().split(' ')
+        x, y = [int(x), int(y)]
+        transfs.append((x, y))
     a = list(map(int, input().strip().split(' ')))
     print(findLongestSubsequence(a, transfs, n))

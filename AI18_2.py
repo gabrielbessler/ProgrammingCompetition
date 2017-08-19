@@ -92,26 +92,26 @@ def main():
     result = tower_coloring3(num_blocks)
     print(result)
 
+TESTING = False
+
 if __name__ == "__main__":
     main()
 
-'''
-Speed Comparison
+#Speed Comparison
+if TESTING:
+    test_num = 16
 
-test_num = 16
+    st = time.time()
+    print(tower_coloring(test_num))
+    print("First Trial: " + str(time.time() - st))
+    print("============================")
 
-st = time.time()
-print(tower_coloring(test_num))
-print("First Trial: " + str(time.time() - st))
-print("============================")
+    st = time.time()
+    print(tower_coloring2(test_num))
+    print("Second Trial: " + str(time.time() - st))
+    print("============================")
 
-st = time.time()
-print(tower_coloring2(test_num))
-print("Second Trial: " + str(time.time() - st))
-print("============================")
-
-st = time.time()
-print(tower_coloring3(test_num))
-print("Third Trial: " + str(time.time() - st))
-print("============================")
-'''
+    st = time.time()
+    print(tower_coloring3(test_num))
+    print("Third Trial: " + str(time.time() - st))
+    print("============================")

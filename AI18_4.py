@@ -1,6 +1,32 @@
 import sys
 from functools import reduce, lru_cache
 
+'''
+Problem Statement for Divisor Exploration 3
+
+We have q queries of (m, a, d), s.t.
+
+    n_i = p_i**(a + i), where p_i is the i'th prime.
+
+and n is the product of all n_i from i=1 to i=m.
+Using n along with d, create a tree T such that
+    n is the root node
+    all the children of a node are its divisors (including 1 and itself)
+    continue expanding until T has depth d
+Now, replace the leaves (nodes at maximum depth) such that each leaf
+is its own totient function. Next, its parent are equal to the sum of the
+values of its children.
+Do this iteratively until you reach the root node of the tree, and output its
+value mod (10**9 + 7)
+
+Constraints
+
+q <= 50
+m <= 1000
+a <= 1000
+d <= 1000
+'''
+
 # Initially, the approach was to make a tree of all
 # of the divisors.
 
