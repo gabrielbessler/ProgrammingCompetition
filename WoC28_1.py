@@ -1,0 +1,1 @@
+ans = reduce(lambda x,y: x | y, list(map(lambda x: x/c > m,p)))
