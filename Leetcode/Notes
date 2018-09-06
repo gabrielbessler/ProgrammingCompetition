@@ -1,0 +1,4 @@
+*list -> unpack list 
+zip(*list) -> reverse 2D array 
+hash function is builtin to python
+Make sure hashmaps have same time for input and output
