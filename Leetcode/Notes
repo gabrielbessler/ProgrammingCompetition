@@ -4,6 +4,7 @@ hash function is builtin to python
 Make sure hashmaps have same time for input and output
 ^ is xor 
 bin() to convert to binary
+use .sort(key = lambda x: f(x)) to do custom sorting
 
 bytearray?
 LCs with ()
