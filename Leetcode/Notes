@@ -1,10 +1,16 @@
-*list -> unpack list 
-zip(*list) -> reverse 2D array 
-hash function is builtin to python
-Make sure hashmaps have same time for input and output
-^ is xor 
-bin() to convert to binary
-use .sort(key = lambda x: f(x)) to do custom sorting
+1. *list -> unpack list 
+2. zip(*list) -> reverse 2D array 
+3. hash function is builtin to python
+4. Make sure hashmaps have same time for input and output
+5. ^ is xor 
+6. bin() to convert to binary
+7. use .sort(key = lambda x: f(x)) to do custom sorting
+8. A[::-1] for reversing a list
+9. a.reverse() will reverse the list in place 
+10. reversed(a) will return an iterator of the reversed list (but does not modify the list)
+    -> the iterator will point to the original list
+11. ```return``` is equivalent to ```return None``` if on a line by itself 
+12. 
 
 bytearray?
 LCs with ()
