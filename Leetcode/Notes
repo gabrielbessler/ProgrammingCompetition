@@ -10,7 +10,11 @@
 10. reversed(a) will return an iterator of the reversed list (but does not modify the list)
     -> the iterator will point to the original list
 11. ```return``` is equivalent to ```return None``` if on a line by itself 
-12. 
+12. all() is helpful for verifying that a condition is satisfied throughout an array 
+13. Assign multiple variables in one line with 
+    ```x, y = 2, 3```
+14. enumerate() is helpful for for loops 
+15. dictionary comprehensions are great for problems requiring hashmaps
 
 bytearray?
 LCs with ()
